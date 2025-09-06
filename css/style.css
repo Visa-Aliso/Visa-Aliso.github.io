@@ -3006,3 +3006,6 @@ input[type="range"] {
   margin: 16px 0;
   display: block;
 }
+html[theme="dark"] .abstract-box {
+  color: #fff;
+}
