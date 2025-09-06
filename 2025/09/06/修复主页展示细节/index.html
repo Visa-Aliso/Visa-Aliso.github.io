@@ -20,15 +20,15 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="完善方法添加abstractrunnable1Blog\node_modules\hexo-theme-vivia\source\css  在上述文件中，尾部添加上以下代码： runnable1234567.post-abstract  border-left 4px solid skyblue  color skyblue  padding-left 10px  line-height 1.6">
+  <meta name="description" content="完善方法添加abstractrunnable1Blog\node_modules\hexo-theme-vivia\source\css  在上述文件中，尾部添加上以下代码： runnable1234567.post-abstract  border-left 4px solid skyblue  color #000  padding-left 10px  line-height 1.6  ma">
 <meta property="og:type" content="article">
 <meta property="og:title" content="修复主页展示细节">
 <meta property="og:url" content="http://example.com/2025/09/06/%E4%BF%AE%E5%A4%8D%E4%B8%BB%E9%A1%B5%E5%B1%95%E7%A4%BA%E7%BB%86%E8%8A%82/index.html">
 <meta property="og:site_name" content="Aliso&#39; Blog">
-<meta property="og:description" content="完善方法添加abstractrunnable1Blog\node_modules\hexo-theme-vivia\source\css  在上述文件中，尾部添加上以下代码： runnable1234567.post-abstract  border-left 4px solid skyblue  color skyblue  padding-left 10px  line-height 1.6">
+<meta property="og:description" content="完善方法添加abstractrunnable1Blog\node_modules\hexo-theme-vivia\source\css  在上述文件中，尾部添加上以下代码： runnable1234567.post-abstract  border-left 4px solid skyblue  color #000  padding-left 10px  line-height 1.6  ma">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-06T09:50:46.778Z">
+<meta property="article:modified_time" content="2025-09-06T10:02:29.311Z">
 <meta property="article:author" content="Aliso">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="Vivia">
@@ -142,14 +142,14 @@
     <div class="widget">
       <h3 class="widget-title">分类</h3>
       <div class="category-box">
-            <a class="category-link" href="/categories/%E9%AA%9A%E8%AF%9D/">
-                骚话
-                <div class="category-count">1</div>
-            </a>
-        
             <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/">
                 学习经历
                 <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%AA%9A%E8%AF%9D/">
+                骚话
+                <div class="category-count">1</div>
             </a>
         </div>
     </div>
@@ -218,7 +218,7 @@
           <h1 id="完善方法"><a href="#完善方法" class="headerlink" title="完善方法"></a>完善方法</h1><h2 id="添加abstract"><a href="#添加abstract" class="headerlink" title="添加abstract"></a>添加abstract</h2><figure class="highlight bash"><figcaption><span>runnable</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Blog\node_modules\hexo-theme-vivia\<span class="built_in">source</span>\css</span><br></pre></td></tr></table></figure>
 
 <p>在上述文件中，尾部添加上以下代码：</p>
-<figure class="highlight bash"><figcaption><span>runnable</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.post-abstract</span><br><span class="line">  border-left 4px solid skyblue</span><br><span class="line">  color skyblue</span><br><span class="line">  padding-left 10px</span><br><span class="line">  line-height 1.6</span><br><span class="line">  margin 16px 0</span><br><span class="line">  display block</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>runnable</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.post-abstract</span><br><span class="line">  border-left 4px solid skyblue</span><br><span class="line">  color <span class="comment">#000</span></span><br><span class="line">  padding-left 10px</span><br><span class="line">  line-height 1.6</span><br><span class="line">  margin 16px 0</span><br><span class="line">  display block</span><br></pre></td></tr></table></figure>
 
 <h2 id="修改展示方式"><a href="#修改展示方式" class="headerlink" title="修改展示方式"></a>修改展示方式</h2><figure class="highlight bash"><figcaption><span>runnable</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Blog\node_modules\hexo-theme-vivia\layout\_partial\artical.ejs</span><br></pre></td></tr></table></figure>
 

@@ -3000,7 +3000,7 @@ input[type="range"] {
 }
 .abstract-box {
   border-left: 4px solid #87ceeb;
-  color: #87ceeb;
+  color: #000;
   padding-left: 10px;
   line-height: 1.6;
   margin: 16px 0;
