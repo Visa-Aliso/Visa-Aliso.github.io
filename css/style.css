@@ -2998,3 +2998,11 @@ input[type="range"] {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+.abstract-box {
+  border-left: 4px solid #87ceeb;
+  color: #87ceeb;
+  padding-left: 10px;
+  line-height: 1.6;
+  margin: 16px 0;
+  display: block;
+}

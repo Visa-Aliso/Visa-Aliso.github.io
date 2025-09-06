@@ -14,18 +14,24 @@
   
 
   
-  <title>标签: hexo | Aliso&#39; Blog</title>
+  <title>修复主页展示细节 | Aliso&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Aliso&#39; Blog">
-<meta property="og:url" content="http://example.com/tags/hexo/index.html">
+  <meta name="description" content="完善方法添加abstractrunnable1Blog\node_modules\hexo-theme-vivia\source\css  在上述文件中，尾部添加上以下代码： runnable1234567.post-abstract  border-left 4px solid skyblue  color skyblue  padding-left 10px  line-height 1.6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="修复主页展示细节">
+<meta property="og:url" content="http://example.com/2025/09/06/%E4%BF%AE%E5%A4%8D%E4%B8%BB%E9%A1%B5%E5%B1%95%E7%A4%BA%E7%BB%86%E8%8A%82/index.html">
 <meta property="og:site_name" content="Aliso&#39; Blog">
+<meta property="og:description" content="完善方法添加abstractrunnable1Blog\node_modules\hexo-theme-vivia\source\css  在上述文件中，尾部添加上以下代码： runnable1234567.post-abstract  border-left 4px solid skyblue  color skyblue  padding-left 10px  line-height 1.6">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-09-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-09-06T09:50:46.778Z">
 <meta property="article:author" content="Aliso">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="Vivia">
 <meta name="twitter:card" content="summary">
   
   
@@ -167,63 +173,104 @@
     <div id="content-body">
        
 
-<div class="archive-main-card">
-    <div class="archive-top">
-      <div class="main-title-bar">
-        <div class="main-title-dot"></div>
-        <h1 class="article-title">归档</h1>
-      </div>    
+
+<article id="post-修复主页展示细节" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        修复主页展示细节
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-09-05T16:00:00.000Z" itemprop="datePublished">2025-09-06</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/">学习经历</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vivia/" rel="tag">Vivia</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="完善方法"><a href="#完善方法" class="headerlink" title="完善方法"></a>完善方法</h1><h2 id="添加abstract"><a href="#添加abstract" class="headerlink" title="添加abstract"></a>添加abstract</h2><figure class="highlight bash"><figcaption><span>runnable</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Blog\node_modules\hexo-theme-vivia\<span class="built_in">source</span>\css</span><br></pre></td></tr></table></figure>
+
+<p>在上述文件中，尾部添加上以下代码：</p>
+<figure class="highlight bash"><figcaption><span>runnable</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.post-abstract</span><br><span class="line">  border-left 4px solid skyblue</span><br><span class="line">  color skyblue</span><br><span class="line">  padding-left 10px</span><br><span class="line">  line-height 1.6</span><br><span class="line">  margin 16px 0</span><br><span class="line">  display block</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改展示方式"><a href="#修改展示方式" class="headerlink" title="修改展示方式"></a>修改展示方式</h2><figure class="highlight bash"><figcaption><span>runnable</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Blog\node_modules\hexo-theme-vivia\layout\_partial\artical.ejs</span><br></pre></td></tr></table></figure>
+
+<p>在上述文件中，把以下部分进行修改</p>
+<figure class="highlight bash"><figcaption><span>runnable</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">&quot;e-content article-entry&quot;</span> itemprop=<span class="string">&quot;articleBody&quot;</span>&gt;</span><br><span class="line">  &lt;% <span class="keyword">if</span> (post.excerpt &amp;&amp; index)&#123; %&gt;</span><br><span class="line">    &lt;%- post.excerpt %&gt;</span><br><span class="line">  &lt;% &#125; <span class="keyword">else</span> <span class="keyword">if</span> (is_home() &amp;&amp; !post.excerpt &amp;&amp; theme.home.style != <span class="string">&#x27;detail&#x27;</span>) &#123; %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>修改为：</p>
+<figure class="highlight bash"><figcaption><span>runnable</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">&quot;e-content article-entry&quot;</span> itemprop=<span class="string">&quot;articleBody&quot;</span>&gt;</span><br><span class="line">  &lt;% <span class="keyword">if</span> (is_home() &amp;&amp; post.abstract) &#123; %&gt;</span><br><span class="line">    &lt;div class=<span class="string">&quot;post-abstract abstract-box&quot;</span>&gt;</span><br><span class="line">      &lt;%= post.abstract %&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;% &#125; <span class="keyword">else</span> <span class="keyword">if</span> (post.excerpt &amp;&amp; index) &#123; %&gt;</span><br><span class="line">    &lt;%- post.excerpt %&gt;</span><br><span class="line">  &lt;% &#125; <span class="keyword">else</span> <span class="keyword">if</span> (is_home() &amp;&amp; !post.excerpt &amp;&amp; theme.home.style != <span class="string">&#x27;detail&#x27;</span>) &#123; %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在修改之后，若加入了abstract，则会直接显示abstract；否则显示原文内容</p>
+
+        
+      </div>
+
+         
     </div>
     
-    
-      
-      
-        
-        <div class="year-line">
-            <div class="year-num">2025</div>
-            <div class="dot-wrapper">
-                <div class="dot"></div>
-            </div>
-            <div class="article-count">2 篇文章</div>
-        </div>
-      
-      <a class="archive-article-link" href="/2025/09/06/%E4%BF%AE%E5%A4%8D%E4%B8%BB%E9%A1%B5%E5%B1%95%E7%A4%BA%E7%BB%86%E8%8A%82/" title="修复主页展示细节">
-        <div class="date">09-06</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    修复主页展示细节
-                
-            </div>
-        </div>
-        <div class="tags">
-            #hexo #Vivia
-        </div>
-      </a>
-    
-      
-      
-      <a class="archive-article-link" href="/2025/09/04/Blog%E6%90%AD%E5%BB%BA/" title="Blog搭建">
-        <div class="date">09-04</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    Blog搭建
-                
-            </div>
-        </div>
-        <div class="tags">
-            #hexo
-        </div>
-      </a>
-    
+     
   </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left  disabled "
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2025/09/04/Blog%E6%90%AD%E5%BB%BA/"
+      title="Blog搭建"
+     >
+
+    <p class="title-text">
+      
+        Blog搭建
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
     </div>
     <div id="footer-wrapper">
       <footer id="footer">
