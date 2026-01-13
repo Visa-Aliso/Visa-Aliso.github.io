@@ -20,15 +20,15 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="Win11 下 WSL2 搭建记录本文记录一次从零开始搭建 WSL2，并将 Ubuntu 发行版迁移到 D 盘的完整过程，同时整理关键命令、常见报错及解决思路。  一、什么是 WSL？WSL（Windows Subsystem for Linux）是 Windows 提供的 Linux 子系统，使我们可以在 Windows 下直接运行原生 Linux 环境。其中： WSL1：系统调用翻译层（已基本">
+  <meta name="description" content="Win11 下 WSL2 搭建记录本文记录一次从零开始搭建 WSL2的完整过程，同时整理相关的关键命令。  一、什么是 WSL？WSL（Windows Subsystem for Linux）是 Windows 提供的 Linux 子系统，使我们可以在 Windows 下直接运行原生 Linux 环境。其中： WSL1：系统调用翻译层（已基本淘汰） WSL2：基于轻量虚拟机，完整 Linux 内核">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建WSL">
 <meta property="og:url" content="http://example.com/2026/01/13/%E6%90%AD%E5%BB%BAWSL%E7%8E%AF%E5%A2%83/index.html">
 <meta property="og:site_name" content="Aliso&#39; Blog">
-<meta property="og:description" content="Win11 下 WSL2 搭建记录本文记录一次从零开始搭建 WSL2，并将 Ubuntu 发行版迁移到 D 盘的完整过程，同时整理关键命令、常见报错及解决思路。  一、什么是 WSL？WSL（Windows Subsystem for Linux）是 Windows 提供的 Linux 子系统，使我们可以在 Windows 下直接运行原生 Linux 环境。其中： WSL1：系统调用翻译层（已基本">
+<meta property="og:description" content="Win11 下 WSL2 搭建记录本文记录一次从零开始搭建 WSL2的完整过程，同时整理相关的关键命令。  一、什么是 WSL？WSL（Windows Subsystem for Linux）是 Windows 提供的 Linux 子系统，使我们可以在 Windows 下直接运行原生 Linux 环境。其中： WSL1：系统调用翻译层（已基本淘汰） WSL2：基于轻量虚拟机，完整 Linux 内核">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-13T04:48:29.429Z">
+<meta property="article:modified_time" content="2026-01-13T10:50:12.802Z">
 <meta property="article:author" content="Aliso">
 <meta property="article:tag" content="WSL">
 <meta name="twitter:card" content="summary">
@@ -209,7 +209,7 @@
   
             </div>
             <div class="wordcount need-seperator meta-info">
-              834 字
+              1592 字
             </div>
           </div>
         
@@ -219,7 +219,7 @@
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h1 id="Win11-下-WSL2-搭建记录"><a href="#Win11-下-WSL2-搭建记录" class="headerlink" title="Win11 下 WSL2 搭建记录"></a>Win11 下 WSL2 搭建记录</h1><p>本文记录一次从零开始搭建 WSL2，并将 Ubuntu 发行版迁移到 D 盘的完整过程，同时整理关键命令、常见报错及解决思路。</p>
+          <h1 id="Win11-下-WSL2-搭建记录"><a href="#Win11-下-WSL2-搭建记录" class="headerlink" title="Win11 下 WSL2 搭建记录"></a>Win11 下 WSL2 搭建记录</h1><p>本文记录一次从零开始搭建 WSL2的完整过程，同时整理相关的关键命令。</p>
 <hr>
 <h2 id="一、什么是-WSL？"><a href="#一、什么是-WSL？" class="headerlink" title="一、什么是 WSL？"></a>一、什么是 WSL？</h2><p>WSL（Windows Subsystem for Linux）是 Windows 提供的 Linux 子系统，使我们可以在 Windows 下直接运行原生 Linux 环境。其中：</p>
 <p>WSL1：系统调用翻译层（已基本淘汰）</p>
@@ -229,10 +229,8 @@
 <h2 id="二、先安装，再迁移至-D-盘"><a href="#二、先安装，再迁移至-D-盘" class="headerlink" title="二、先安装，再迁移至 D 盘"></a>二、先安装，再迁移至 D 盘</h2><h3 id="2-1-安装-Ubuntu（默认在-C-盘）"><a href="#2-1-安装-Ubuntu（默认在-C-盘）" class="headerlink" title="2.1 安装 Ubuntu（默认在 C 盘）"></a>2.1 安装 Ubuntu（默认在 C 盘）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --install</span><br></pre></td></tr></table></figure>
 
 <p>安装完成后：首次启动会创建用户和密码</p>
-<hr>
 <h3 id="2-2-关闭-WSL"><a href="#2-2-关闭-WSL" class="headerlink" title="2.2 关闭 WSL"></a>2.2 关闭 WSL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --shutdown</span><br></pre></td></tr></table></figure>
 
-<hr>
 <h3 id="2-3-导出-Ubuntu（生成-tar-备份）"><a href="#2-3-导出-Ubuntu（生成-tar-备份）" class="headerlink" title="2.3 导出 Ubuntu（生成 tar 备份）"></a>2.3 导出 Ubuntu（生成 tar 备份）</h3><p>先查看发行版名称：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -l -v</span><br></pre></td></tr></table></figure>
 
@@ -242,11 +240,9 @@
 <p>该 tar 文件包含：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-系统</span><br><span class="line">-用户</span><br><span class="line">-home 目录</span><br><span class="line">-已安装的软件和配置</span><br></pre></td></tr></table></figure>
 
-<hr>
 <h3 id="2-4-注销原有-Ubuntu（删除-C-盘那份）"><a href="#2-4-注销原有-Ubuntu（删除-C-盘那份）" class="headerlink" title="2.4 注销原有 Ubuntu（删除 C 盘那份）"></a>2.4 注销原有 Ubuntu（删除 C 盘那份）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --unregister Ubuntu</span><br></pre></td></tr></table></figure>
 
 <p>⚠️ 此操作会删除 C 盘里的 Ubuntu，但 tar 备份是完整的。</p>
-<hr>
 <h3 id="2-5-导入到-D-盘"><a href="#2-5-导入到-D-盘" class="headerlink" title="2.5 导入到 D 盘"></a>2.5 导入到 D 盘</h3><p>先创建目标目录，例如：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\WSL\Ubuntu</span><br></pre></td></tr></table></figure>
 
@@ -263,7 +259,47 @@
 
 <p>说明：Ubuntu 已正常启动，当前为普通用户，可通过 sudo 获取管理员权限</p>
 <hr>
-<h2 id="四、WSL-使用"><a href="#四、WSL-使用" class="headerlink" title="四、WSL 使用"></a>四、WSL 使用</h2><h2 id="推荐的长期结构："><a href="#推荐的长期结构：" class="headerlink" title="推荐的长期结构："></a>推荐的长期结构：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">内容</span><br><span class="line">    -建议位置</span><br><span class="line">Linux 系统</span><br><span class="line">    D:\WSL\Ubuntu</span><br><span class="line">项目代码</span><br><span class="line">    /home/&lt;user&gt;/projects</span><br><span class="line">大数据集</span><br><span class="line">    /mnt/d/datasets</span><br><span class="line">Python / Conda</span><br><span class="line">    Linux 内部</span><br></pre></td></tr></table></figure>
+<h2 id="四、安装CUDA"><a href="#四、安装CUDA" class="headerlink" title="四、安装CUDA"></a>四、安装CUDA</h2><p>在确认 WSL2 已正确启用、Ubuntu 子系统可正常运行，且 Windows 侧显卡驱动已支持 WSL GPU 后，下一步便是为 Linux 环境配置 CUDA 开发工具链。</p>
+<p>考虑到 稳定性、维护成本以及 WSL 环境的兼容性，本文选择 Ubuntu 官方仓库提供的 CUDA Toolkit，而非 NVIDIA 官方 runfile 安装方式。</p>
+<h3 id="4-1-更新系统软件源"><a href="#4-1-更新系统软件源" class="headerlink" title="4.1 更新系统软件源"></a>4.1 更新系统软件源</h3><p>在安装 CUDA 之前，建议先同步系统的软件索引并升级已有组件，以避免依赖冲突：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt upgrade</span><br></pre></td></tr></table></figure>
+
+<p>该步骤不会影响 Windows 系统，只作用于 WSL 内部的 Ubuntu 文件系统。如果提示可升级大量基础库，属于正常现象，建议确认执行。</p>
+<h3 id="4-2-查询可用的-CUDA-Toolkit-版本"><a href="#4-2-查询可用的-CUDA-Toolkit-版本" class="headerlink" title="4.2 查询可用的 CUDA Toolkit 版本"></a>4.2 查询可用的 CUDA Toolkit 版本</h3><p>Ubuntu 官方仓库并不会提供所有 NVIDIA 官网的 CUDA 版本，而是提供 经过适配与验证的稳定版本。可以通过以下命令查看当前可用的 CUDA Toolkit：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt search nvidia-cuda-toolkit</span><br></pre></td></tr></table></figure>
+
+<p>典型输出如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-cuda-toolkit 12.0.x</span><br></pre></td></tr></table></figure>
+
+<p>这意味着当前系统可直接安装 CUDA 12.0，对大多数深度学习与科研项目已经完全足够。</p>
+<h3 id="4-3-安装-CUDA-Toolkit"><a href="#4-3-安装-CUDA-Toolkit" class="headerlink" title="4.3 安装 CUDA Toolkit"></a>4.3 安装 CUDA Toolkit</h3><p>直接通过 apt 安装即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install nvidia-cuda-toolkit -y</span><br></pre></td></tr></table></figure>
+
+<p>该命令会自动安装以下内容：</p>
+<p>CUDA 编译器（nvcc）</p>
+<p>CUDA Runtime 与开发库</p>
+<p>标准头文件与调试工具</p>
+<p>安装过程中无需手动配置环境变量，这是官方仓库方案的一个重要优势。</p>
+<h3 id="4-4-验证-CUDA-安装状态"><a href="#4-4-验证-CUDA-安装状态" class="headerlink" title="4.4 验证 CUDA 安装状态"></a>4.4 验证 CUDA 安装状态</h3><p>安装完成后，首先检查 CUDA 编译器是否可用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvcc --version</span><br></pre></td></tr></table></figure>
+
+<p>若输出类似以下内容，说明 CUDA Toolkit 已成功安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cuda compilation tools, release 12.0</span><br></pre></td></tr></table></figure>
+
+<p>接着确认 nvcc 是否已加入系统 PATH：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> nvcc</span><br></pre></td></tr></table></figure>
+
+<p>在官方仓库方案下，返回路径通常为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/nvcc</span><br></pre></td></tr></table></figure>
+
+<p>这是 完全正常且推荐的结果，无需额外修改 .bashrc 或手动添加环境变量。</p>
+<h3 id="4-6-小结"><a href="#4-6-小结" class="headerlink" title="4.6 小结"></a>4.6 小结</h3><p>至此，WSL2 下的 CUDA 开发环境已经搭建完成：</p>
+<p>无需手动配置环境变量</p>
+<p>无需下载 NVIDIA runfile</p>
+<p>可直接用于 PyTorch、CUDA C++ 或科研项目开发</p>
+<p>后续只需根据具体项目需求，安装对应的深度学习框架或编译 CUDA 程序即可。</p>
+<hr>
+<h2 id="五、WSL-使用"><a href="#五、WSL-使用" class="headerlink" title="五、WSL 使用"></a>五、WSL 使用</h2><h2 id="推荐的长期结构："><a href="#推荐的长期结构：" class="headerlink" title="推荐的长期结构："></a>推荐的长期结构：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">内容</span><br><span class="line">    -建议位置</span><br><span class="line">Linux 系统</span><br><span class="line">    D:\WSL\Ubuntu</span><br><span class="line">项目代码</span><br><span class="line">    /home/&lt;user&gt;/projects</span><br><span class="line">大数据集</span><br><span class="line">    /mnt/d/datasets</span><br><span class="line">Python / Conda</span><br><span class="line">    Linux 内部</span><br></pre></td></tr></table></figure>
 
 <h2 id="Windows-访问-Linux："><a href="#Windows-访问-Linux：" class="headerlink" title="Windows 访问 Linux："></a>Windows 访问 Linux：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\wsl$\Ubuntu\home\&lt;user&gt;</span><br></pre></td></tr></table></figure>
 
@@ -288,7 +324,7 @@
 
 <h2 id="目录与文件操作"><a href="#目录与文件操作" class="headerlink" title="目录与文件操作"></a>目录与文件操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="comment"># 显示当前所在的完整路径</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 列出当前目录下的文件和文件夹</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ls</span> -lah</span><br><span class="line"><span class="comment"># 以详细形式列出文件（含隐藏文件），并显示文件大小</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /path/to/dir</span><br><span class="line"><span class="comment"># 切换到指定目录</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment"># 回到当前用户的 home 目录（/home/用户名）</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> project</span><br><span class="line"><span class="comment"># 创建名为 project 的文件夹</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> file.txt</span><br><span class="line"><span class="comment"># 删除文件 file.txt</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> -rf folder</span><br><span class="line"><span class="comment"># 强制递归删除 folder 目录（危险命令）</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cp</span> a.txt b.txt</span><br><span class="line"><span class="comment"># 复制文件 a.txt 为 b.txt</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mv</span> old new</span><br><span class="line"><span class="comment"># 重命名或移动文件/目录</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Windows-与-WSL-文件互通（非常重要）"><a href="#Windows-与-WSL-文件互通（非常重要）" class="headerlink" title="Windows 与 WSL 文件互通（非常重要）"></a>Windows 与 WSL 文件互通（非常重要）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/c</span><br><span class="line"><span class="comment"># 进入 Windows 的 C 盘</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /mnt/d/WSL</span><br><span class="line"><span class="comment"># 进入 Windows 的 D:\WSL 目录</span></span><br><span class="line"></span><br><span class="line">explorer.exe .</span><br><span class="line"><span class="comment"># 用 Windows 资源管理器打开当前 Linux 目录</span></span><br><span class="line"></span><br><span class="line">wsl</span><br><span class="line"><span class="comment"># 从 Windows 直接进入默认 WSL 发行版</span></span><br></pre></td></tr></table></figure>
+<h2 id="Windows-与-WSL-文件互通"><a href="#Windows-与-WSL-文件互通" class="headerlink" title="Windows 与 WSL 文件互通"></a>Windows 与 WSL 文件互通</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/c</span><br><span class="line"><span class="comment"># 进入 Windows 的 C 盘</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /mnt/d/WSL</span><br><span class="line"><span class="comment"># 进入 Windows 的 D:\WSL 目录</span></span><br><span class="line"></span><br><span class="line">explorer.exe .</span><br><span class="line"><span class="comment"># 用 Windows 资源管理器打开当前 Linux 目录</span></span><br><span class="line"></span><br><span class="line">wsl</span><br><span class="line"><span class="comment"># 从 Windows 直接进入默认 WSL 发行版</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="权限与用户相关"><a href="#权限与用户相关" class="headerlink" title="权限与用户相关"></a>权限与用户相关</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">whoami</span></span><br><span class="line"><span class="comment"># 显示当前登录的用户名</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">id</span></span><br><span class="line"><span class="comment"># 显示当前用户的 UID、GID 以及所属用户组</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">command</span></span><br><span class="line"><span class="comment"># 以管理员（root）权限执行 command</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> -i</span><br><span class="line"><span class="comment"># 切换到 root 用户（不建议长期使用）</span></span><br></pre></td></tr></table></figure>
 
@@ -297,6 +333,8 @@
 
 <p>Python 虚拟环境</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">python3 --version</span><br><span class="line"><span class="comment"># 查看 Python 版本</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt install python3-venv -y</span><br><span class="line"><span class="comment"># 安装 Python 虚拟环境模块</span></span><br><span class="line"></span><br><span class="line">python3 -m venv venv</span><br><span class="line"><span class="comment"># 创建名为 venv 的虚拟环境</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br><span class="line"><span class="comment"># 激活虚拟环境</span></span><br><span class="line"></span><br><span class="line">deactivate</span><br><span class="line"><span class="comment"># 退出虚拟环境</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="comment"># 从软件源同步可用软件列表</span></span><br><span class="line"></span><br><span class="line">apt list --upgradable</span><br><span class="line"><span class="comment"># 查看当前有哪些软件可以升级</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt upgrade</span><br><span class="line"><span class="comment"># 安全升级已安装的软件，不删除也不新增依赖</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt full-upgrade</span><br><span class="line"><span class="comment"># 在必要时允许新增或删除依赖完成升级</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt autoremove</span><br><span class="line"><span class="comment"># 删除升级后不再需要的旧依赖，释放磁盘空间</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt clean</span><br><span class="line"><span class="comment"># 清空已下载的软件包缓存，不影响已安装的软件</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">df</span> -h</span><br><span class="line"><span class="comment"># 查看磁盘剩余空间，避免升级或安装过程中空间不足</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt update &amp;&amp; <span class="built_in">sudo</span> apt upgrade -y</span><br><span class="line"><span class="comment"># 一条命令完成日常系统更新（不需要逐条确认）</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="进程-网络-排错"><a href="#进程-网络-排错" class="headerlink" title="进程 &#x2F; 网络 &#x2F; 排错"></a>进程 &#x2F; 网络 &#x2F; 排错</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">top</span><br><span class="line"><span class="comment"># 实时查看系统进程和资源占用</span></span><br><span class="line"></span><br><span class="line">htop</span><br><span class="line"><span class="comment"># 更友好的进程查看工具（需提前安装）</span></span><br><span class="line"></span><br><span class="line">ps aux | grep python</span><br><span class="line"><span class="comment"># 查找包含 python 的进程</span></span><br><span class="line"></span><br><span class="line">ping google.com</span><br><span class="line"><span class="comment"># 测试网络连通性</span></span><br><span class="line"></span><br><span class="line">ip a</span><br><span class="line"><span class="comment"># 查看网络接口和 IP 地址</span></span><br></pre></td></tr></table></figure>
 
