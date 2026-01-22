@@ -14,20 +14,23 @@
   
 
   
-  <title>Aliso&#39; Blog</title>
+  <title>服务器搭建代理环境 | Aliso&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Aliso&#39; Blog">
+  <meta name="description" content="Clash 代理服务在服务器上快速部署上传文件到服务器主目录将以下两个文件上传到服务器主目录：  下载 clash 下载 clash.db  准备配置文件在本地的 Clash 客户端中找到你的代理配置文件（通常是 .yml 后缀），将其改名为 config.yaml，并上传到服务器主目录。 启动 Clash在服务器终端执行以下命令： 12chmod +x clash.&#x2F;clash -d .  如果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务器搭建代理环境">
 <meta property="og:url" content="http://example.com/2026/01/22/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E4%BB%A3%E7%90%86%E7%8E%AF%E5%A2%83/index.html">
 <meta property="og:site_name" content="Aliso&#39; Blog">
+<meta property="og:description" content="Clash 代理服务在服务器上快速部署上传文件到服务器主目录将以下两个文件上传到服务器主目录：  下载 clash 下载 clash.db  准备配置文件在本地的 Clash 客户端中找到你的代理配置文件（通常是 .yml 后缀），将其改名为 config.yaml，并上传到服务器主目录。 启动 Clash在服务器终端执行以下命令： 12chmod +x clash.&#x2F;clash -d .  如果">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-01-22T14:38:32.958Z">
-<meta property="article:modified_time" content="2026-01-22T14:38:33.055Z">
+<meta property="article:published_time" content="2026-01-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-22T14:57:47.339Z">
 <meta property="article:author" content="Aliso">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
   
   
@@ -143,7 +146,7 @@
       <div class="category-box">
             <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/">
                 学习经历
-                <div class="category-count">3</div>
+                <div class="category-count">4</div>
             </a>
         
             <a class="category-link" href="/categories/%E9%AA%9A%E8%AF%9D/">
@@ -160,7 +163,7 @@
   <div class="widget-wrap">
     <div class="widget">
       <h3 class="widget-title">标签</h3>
-      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Aliso/" rel="tag">Aliso</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/WSL/" rel="tag">WSL</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Aliso/" rel="tag">Aliso</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/WSL/" rel="tag">WSL</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
     </div>
   </div>
 
@@ -186,7 +189,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        无标题
+        服务器搭建代理环境
       </h1>
     
   
@@ -195,26 +198,42 @@
         
           <div class='meta-info-bar'>
             <div class="meta-info">
-  <time class="dt-published" datetime="2026-01-22T14:38:32.958Z" itemprop="datePublished">2026-01-22</time>
+  <time class="dt-published" datetime="2026-01-21T16:00:00.000Z" itemprop="datePublished">2026-01-22</time>
 </div>
             <div class="need-seperator meta-info">
               <div class="meta-cate-flex">
   
-    未分类 
+  <a class="meta-cate-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/">学习经历</a>
    
 </div>
   
             </div>
             <div class="wordcount need-seperator meta-info">
-              0 字
+              248 字
             </div>
           </div>
         
         
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          
+          <h1 id="Clash-代理服务在服务器上快速部署"><a href="#Clash-代理服务在服务器上快速部署" class="headerlink" title="Clash 代理服务在服务器上快速部署"></a>Clash 代理服务在服务器上快速部署</h1><h2 id="上传文件到服务器主目录"><a href="#上传文件到服务器主目录" class="headerlink" title="上传文件到服务器主目录"></a>上传文件到服务器主目录</h2><p>将以下两个文件上传到服务器主目录：</p>
+<ul>
+<li><a href="files/clash">下载 clash</a></li>
+<li><a href="files/clash.db">下载 clash.db</a></li>
+</ul>
+<h2 id="准备配置文件"><a href="#准备配置文件" class="headerlink" title="准备配置文件"></a>准备配置文件</h2><p>在本地的 Clash 客户端中找到你的代理配置文件（通常是 .yml 后缀），将其改名为 config.yaml，并上传到服务器主目录。</p>
+<h2 id="启动-Clash"><a href="#启动-Clash" class="headerlink" title="启动 Clash"></a>启动 Clash</h2><p>在服务器终端执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x clash</span><br><span class="line">./clash -d .</span><br></pre></td></tr></table></figure>
+
+<p>如果能够弹出代理节点，说明 Clash 启动成功。(不能退出这个终端)</p>
+<h2 id="在终端中使用代理"><a href="#在终端中使用代理" class="headerlink" title="在终端中使用代理"></a>在终端中使用代理</h2><p>在需要使用代理的终端输入以下命令（根据实际 IP 和端口调整）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> https_proxy=127.0.0.1:7890</span><br><span class="line"><span class="built_in">export</span> http_proxy=127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+
+<p>设置成功后，终端的网络请求就会通过 Clash 代理。</p>
+
         
       </div>
 
