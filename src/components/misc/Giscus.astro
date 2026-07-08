@@ -1,0 +1,128 @@
+---
+
+interface Props {
+	repo?: string;
+	repoId?: string;
+	category?: string;
+	categoryId?: string;
+}
+
+const {
+	repo = "Visa-Aliso/Visa-Aliso.github.io",
+	repoId = "R_kgDOPp3XLg",
+	category = "Announcements",
+	categoryId = "DIC_kwDOPp3XLs4Cvl5a",
+} = Astro.props;
+---
+
+<div class="card-base overflow-hidden mt-6">
+    <!-- Title bar -->
+    <div class="flex items-center gap-2 px-6 py-4 border-b border-[var(--line-divider)]">
+        <span class="w-1 h-5 rounded-md bg-[var(--primary)] inline-block transition"></span>
+        <span class="font-bold text-75 transition">评论</span>
+    </div>
+    <!-- Giscus container -->
+    <div id="giscus-container" class="px-4 py-4 transition">
+        <script
+            src="https://giscus.app/client.js"
+            data-repo={repo}
+            data-repo-id={repoId}
+            data-category={category}
+            data-category-id={categoryId}
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="light"
+            data-lang="zh-CN"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async
+        ></script>
+    </div>
+</div>
+
+<style is:global>
+/* Blend giscus into fuwari card */
+#giscus-container .giscus {
+    --gc-bg: transparent;
+    --gc-border-color: var(--line-divider);
+    --gc-meta-color: var(--deep-text);
+}
+#giscus-container .giscus-frame {
+    width: 100% !important;
+    border: none !important;
+    border-radius: var(--radius-large) !important;
+}
+</style>
+
+<script>
+function getGiscusTheme(): string {
+	const isDark = document.documentElement.classList.contains("dark");
+	// Use built-in themes that are closest to fuwari's palette
+	// light = clean white, dark_dimmed = soft dark (not pure black)
+	return isDark ? "dark_dimmed" : "light";
+}
+
+function syncGiscusTheme() {
+	const iframe = document.querySelector<HTMLIFrameElement>("#giscus-container iframe");
+	if (iframe && iframe.contentWindow) {
+		iframe.contentWindow.postMessage(
+			{ giscus: { setConfig: { theme: getGiscusTheme() } } },
+			"https://giscus.app"
+		);
+	}
+}
+
+function setupGiscusSync() {
+	const container = document.getElementById("giscus-container");
+	if (!container) return;
+
+	const existingIframe = container.querySelector("iframe");
+	if (existingIframe) {
+		existingIframe.addEventListener("load", syncGiscusTheme);
+		syncGiscusTheme();
+	}
+
+	// Observe for async iframe insertion
+	const observer = new MutationObserver((mutations) => {
+		for (const mutation of mutations) {
+			for (const node of mutation.addedNodes) {
+				if (node instanceof HTMLIFrameElement) {
+					node.addEventListener("load", syncGiscusTheme);
+				}
+			}
+		}
+	});
+	observer.observe(container, { childList: true, subtree: true });
+}
+
+// Watch <html> class for light/dark toggle
+let htmlObserver: MutationObserver | null = null;
+function setupHtmlObserver() {
+	if (htmlObserver) return;
+	htmlObserver = new MutationObserver(() => {
+		syncGiscusTheme();
+	});
+	htmlObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+}
+
+// Initial
+setupGiscusSync();
+setupHtmlObserver();
+
+// Swup re-init
+function setupSwupHook() {
+	window.swup?.hooks.on("page:view", () => {
+		setupGiscusSync();
+		setupHtmlObserver();
+	});
+}
+
+if (window.swup?.hooks) {
+	setupSwupHook();
+} else {
+	document.addEventListener("swup:enable", setupSwupHook);
+}
+</script>

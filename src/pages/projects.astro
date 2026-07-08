@@ -1,0 +1,149 @@
+---
+import { Icon } from "astro-icon/components";
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import { profileConfig, projectsConfig } from "../config";
+
+const COLLAPSE_THRESHOLD = projectsConfig.collapseThreshold ?? 4;
+const projects = projectsConfig.sections;
+
+// Sort items by date descending (newer first), placeholders go last
+projects.forEach((section) => {
+	section.items.sort((a, b) => {
+		if (a.placeholder && !b.placeholder) return 1;
+		if (!a.placeholder && b.placeholder) return -1;
+		return (b.date || "").localeCompare(a.date || "");
+	});
+});
+---
+
+<MainGridLayout title="Projects" description="My Projects">
+    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+        <div class="card-base z-10 px-6 md:px-9 py-6 relative w-full">
+
+            <h2 class="dark:text-neutral-200 font-bold text-neutral-700 mb-2 text-xl">Projects</h2>
+            <p class="text-sm text-50 mb-6">
+                这里是我做过的一些项目和学习资料，如果你觉得有用，欢迎前往
+                <a href={profileConfig.links[0]?.url || "#"} target="_blank" rel="noopener noreferrer" class="link-underline text-[var(--primary)] font-medium">GitHub</a>
+                点个 Star。
+            </p>
+
+            {projects.map((section) => {
+                const visibleItems = section.items.slice(0, COLLAPSE_THRESHOLD);
+                const hiddenItems = section.items.slice(COLLAPSE_THRESHOLD);
+                const hasHidden = hiddenItems.length > 0;
+                return (
+                    <div class="mb-8">
+                        <h3 class="dark:text-neutral-200 font-bold text-neutral-700 mb-4 text-lg flex items-center gap-2">
+                            <span class="w-1 h-5 rounded-md bg-[var(--primary)] inline-block"></span>
+                            {section.category}
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {visibleItems.map((project) => (
+                                <div
+                                    class:list={[
+                                        "flex flex-col gap-3 p-5 rounded-[var(--radius-large)] transition",
+                                        project.placeholder
+                                            ? "border-2 border-dashed border-[var(--line-color)] opacity-60"
+                                            : "hover:bg-[var(--btn-card-bg-hover)] active:scale-[0.98]",
+                                    ]}
+                                    style={!project.placeholder ? "background: var(--btn-regular-bg);" : ""}
+                                >
+                                    <div class="font-bold text-75 transition">
+                                        {project.primaryUrl ? (
+                                            <a
+                                                href={project.primaryUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="hover:text-[var(--primary)] transition"
+                                            >
+                                                {project.name}
+                                            </a>
+                                        ) : (
+                                            <span>{project.name}</span>
+                                        )}
+                                    </div>
+                                    <div class="text-sm text-50 grow">
+                                        {project.description}
+                                    </div>
+                                    {project.links.length > 0 && (
+                                        <div class="flex gap-2 mt-1">
+                                            {project.links.map((link) => (
+                                                <a
+                                                    href={link.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    aria-label={link.url}
+                                                    class="btn-regular rounded-lg w-9 h-9 active:scale-90 flex items-center justify-center"
+                                                >
+                                                    <Icon name={link.icon} class="text-sm" />
+                                                </a>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+
+                        {hasHidden && (
+                            <details class="mt-4 group">
+                                <summary
+                                    class="btn-regular rounded-lg h-10 px-4 text-sm font-medium cursor-pointer list-none inline-flex items-center gap-2 transition active:scale-95"
+                                >
+                                    <Icon name="material-symbols:expand-more-rounded" class="text-base transition group-open:rotate-180" />
+                                    展开更多（{hiddenItems.length}）
+                                </summary>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                                    {hiddenItems.map((project) => (
+                                        <div
+                                            class:list={[
+                                                "flex flex-col gap-3 p-5 rounded-[var(--radius-large)] transition",
+                                                project.placeholder
+                                                    ? "border-2 border-dashed border-[var(--line-color)] opacity-60"
+                                                    : "hover:bg-[var(--btn-card-bg-hover)] active:scale-[0.98]",
+                                            ]}
+                                            style={!project.placeholder ? "background: var(--btn-regular-bg);" : ""}
+                                        >
+                                            <div class="font-bold text-75 transition">
+                                                {project.primaryUrl ? (
+                                                    <a
+                                                        href={project.primaryUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        class="hover:text-[var(--primary)] transition"
+                                                    >
+                                                        {project.name}
+                                                    </a>
+                                                ) : (
+                                                    <span>{project.name}</span>
+                                                )}
+                                            </div>
+                                            <div class="text-sm text-50 grow">
+                                                {project.description}
+                                            </div>
+                                            {project.links.length > 0 && (
+                                                <div class="flex gap-2 mt-1">
+                                                    {project.links.map((link) => (
+                                                        <a
+                                                            href={link.url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            aria-label={link.url}
+                                                            class="btn-regular rounded-lg w-9 h-9 active:scale-90 flex items-center justify-center"
+                                                        >
+                                                            <Icon name={link.icon} class="text-sm" />
+                                                        </a>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </details>
+                        )}
+                    </div>
+                );
+            })}
+
+        </div>
+    </div>
+</MainGridLayout>
